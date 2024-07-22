@@ -1,0 +1,303 @@
+[
+    {
+       "id":1,
+       "category":1,
+       "postDate": "2024-07-21",
+       "featureImage":"https://www.deere.com/assets/images/region-4/products/mowers/lawn-tractors/s100-r4j006314-1024x576.jpg",
+       "price":50.99,
+       "title":"Lawnmower",
+       "body":"Enjoy the quiet efficiency of our electric lawnmower. With a noise level similar to a washing machine, it's perfect for neighborhood use.",
+       "published":true
+    },
+    {
+       "id":2,
+       "category":1,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/81g-aOeiwpL._AC_SX679_.jpg",
+       "price":69.97,
+       "title":"Outdoor Patio Set",
+       "body":"Enjoy your outdoor space with this stylish patio set, including a table, four chairs, and an umbrella for shade.",
+       "published":true
+    },
+    {
+       "id":3,
+       "category":2,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/61vvODnIUyL._AC_SX679_.jpg",
+       "price":38.00,
+       "title":"Wireless Earbuds",
+       "body":"Experience true wireless freedom with our high-quality earbuds, offering noise cancellation and long battery life.",
+       "published":true
+    },
+    {
+       "id":4,
+       "category":2,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/71NBQ2a52CL.jpg",
+       "price":459.99,
+       "title":"XBOX",
+       "body":"Upgrade your gaming setup with the Xbox One S. Enjoy immersive gameplay and superior performance.",
+       "published":true
+    },
+    {
+       "id":5,
+       "category":3,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/71nSZpmXtoL._AC_SY879_.jpg",
+       "price":39.99,
+       "title":"Summer Dress",
+       "body":"Stay cool and stylish with our flowy summer dress, perfect for any occasion from beach days to evening outings.",
+       "published":true
+    },
+    {
+       "id":6,
+       "category":3,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/81m3IrE4TiL._AC_SY695_.jpg",
+       "price":29.99,
+       "title":"Running Shoes",
+       "body":"Achieve your best run with our lightweight and breathable running shoes, designed for maximum comfort and support.",
+       "published":true
+    },
+    {
+       "id":7,
+       "category":4,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/61FTABGJz3L.__AC_SY300_SX300_QL70_FMwebp_.jpg",
+       "price":19.99,
+       "title":"Yoga Mat",
+       "body":"Enhance your practice with a high-density yoga mat, providing cushioning and support for all types of exercise.",
+       "published":true
+    },
+    {
+       "id":8,
+       "category":4,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/81ry4uGOeBL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+       "price":99.99,
+       "title":"Camping Tent",
+       "body":"Experience the great outdoors with our durable and easy-to-assemble camping tent, suitable for all weather conditions.",
+       "published":true
+    },
+    {
+       "id":9,
+       "category":5,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/61tRktybQKL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+       "price":99.99,
+       "title":"Dog Bed",
+       "body":"Give your pet the comfort they deserve with our plush and supportive dog bed, available in various sizes.",
+       "published":true
+    },
+    {
+       "id":10,
+       "category":5,
+       "postDate": "2024-07-21",
+       "featureImage":"https://m.media-amazon.com/images/I/81jM6UaLh3L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+       "price":9.99,
+       "title":"Bird Feeder",
+       "body":"Attract a variety of birds to your garden with our easy-to-fill and clean bird feeder, designed for year-round use",
+       "published":true
+    },
+    {
+      "id": 11,
+      "category": 1,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61Na8MsgRDL._AC_SX679_.jpg",
+      "price": 79.27,
+      "title": "Modern Desk",
+      "body": "Sleek and modern desk perfect for home office, studio, or dining use.",
+      "published": true
+    },
+    {
+      "id": 12,
+      "category": 1,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61hX1dmOjCL._AC_SX679_.jpg",
+      "price": 599.75,
+      "title": "Vacuum Cleaner",
+      "body": "Keep your home spotless with our powerful and lightweight vacuum cleaner, designed for all floor types",
+      "published": true
+    },
+    {
+      "id": 13,
+      "category": 2,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61I22cL7v+L._AC_SX679_.jpg",
+      "price": 19.99,
+      "title": "Smartwatch",
+      "body": "Stay connected and track your fitness with our sleek smartwatch, featuring heart rate monitoring and GPS",
+      "published": true
+    },
+    {
+      "id": 14,
+      "category": 2,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/71jjuTLpCpL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 49.37,
+      "title": "Bluetooth Speaker",
+      "body": "Enjoy crystal clear sound anywhere with our portable Bluetooth speaker, featuring long battery life and waterproof design.",
+      "published": true
+    },
+    {
+      "id": 15,
+      "category": 3,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61Sl5hKC5qL._AC_SY879_.jpg",
+      "price": 649.00,
+      "title": "Winter Coat",
+      "body": "Stay warm in style with our insulated winter coat, featuring a detachable hood and multiple pockets for convenience",
+      "published": true
+    },
+    {
+      "id": 16,
+      "category": 3,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/71O9IkEVH-L._AC_SX679_.jpg",
+      "price":49.98,
+      "title": "Athletic Wear Set",
+      "body": "Perform at your best with our moisture-wicking athletic wear set, including a top and leggings designed for comfort and flexibility.",
+      "published": true
+    },
+    {
+      "id": 17,
+      "category": 4,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/91hmXq+7t-L._AC_SY300_SX300_.jpg",
+      "price": 35.95,
+      "title": "Hiking Backpack",
+      "body": "Explore the trails with our ergonomic hiking backpack, offering ample storage and support for long treks",
+      "published": true
+    },
+    {
+      "id": 18,
+      "category": 4,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/71NjVS5BeEL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 99.99,
+      "title": "Tennis Racket",
+      "body": "Improve your game with our lightweight and balanced tennis racket, perfect for players of all levels.",
+      "published": true
+    },
+    {
+      "id": 19,
+      "category": 5,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61GKar3CjTS.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 67.28,
+      "title": "Cat Scratching Post",
+      "body": "Keep your cat entertained and your furniture safe with our durable scratching post, featuring multiple levels and toys",
+      "published": true
+    },
+    {
+      "id": 20,
+      "category": 5,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61XL6vQCa1L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 27.23,
+      "title": "Aquarium Heater",
+      "body": "Maintain a perfect environment for your fish with our reliable and adjustable aquarium heater, suitable for all tank sizes",
+      "published": true
+    },
+    {
+      "id": 21,
+      "category": 1,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/71-fUpapWfL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 175.99,
+      "title": "Air Purifier",
+      "body": "Breathe easier with our advanced air purifier, designed to remove allergens and pollutants from your home.",
+      "published": true
+    },
+    {
+      "id": 22,
+      "category": 1,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/711tghuyhzL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 89.99,
+      "title": "Pressure Washer",
+      "body": "Keep your outdoor spaces clean with our high-powered pressure washer, perfect for decks, driveways, and more.",
+      "published": true
+    },
+    {
+      "id": 23,
+      "category": 2,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61h+qeD-qfL._AC_SY300_SX300_.jpg",
+      "price": 499.99,
+      "title": "Tablet",
+      "body": "Enjoy versatile functionality with our lightweight tablet, ideal for both work and play with a vibrant display.",
+      "published": true
+    },
+    {
+      "id": 24,
+      "category": 2,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61E5WIS9vDL._AC_SX679_.jpg",
+      "price": 266.67,
+      "title": "Drone",
+      "body": "Capture stunning aerial footage with our easy-to-fly drone, featuring a high-definition camera and long battery life",
+      "published": true
+    },
+    {
+      "id": 25,
+      "category": 4,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61ZtqtvoD2L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 104.99,
+      "title": "Fitness Tracker",
+      "body": "Monitor your health and fitness goals with our advanced fitness tracker, offering heart rate tracking and sleep analysis",
+      "published": true
+    },
+    {
+      "id": 26,
+      "category": 4,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/91mi6DhAWSL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
+      "price": 294.97,
+      "title": "Mountain Bike",
+      "body": "Conquer any terrain with our rugged mountain bike, designed for stability and performance on off-road trails.",
+      "published": true
+    },
+    {
+      "id": 27,
+      "category": 3,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/71aHTix8pvL._AC_SX679_.jpg",
+      "price": 177.00,
+      "title": "Leather Jacket",
+      "body": "Add a timeless piece to your wardrobe with our classic leather jacket, offering style and durability for any season",
+      "published": true
+    },
+    {
+      "id": 28,
+      "category": 3,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61Jzp409HUL._AC_SX679_.jpg",
+      "price": 12.96,
+      "title": "Sunglasses",
+      "body": "Protect your eyes and look stylish with our polarized sunglasses, perfect for sunny days and outdoor activities.",
+      "published": true
+    },
+    {
+      "id": 29,
+      "category": 5,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/61tatOQzdLL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 27.43,
+      "title": "Pet Carrier",
+      "body": "Travel with ease using our comfortable and secure pet carrier, designed for both cats and dogs with ventilation and soft padding.",
+      "published": true
+    },
+    {
+      "id": 30,
+      "category": 5,
+      "postDate": "2024-07-21",
+      "featureImage": "https://m.media-amazon.com/images/I/81i5XG4Yx3L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+      "price": 164.39,
+      "title": "Reptile Habitat",
+      "body": "Create a natural environment for your reptile with our spacious and well-equipped habitat, suitable for various species.",
+      "published": true
+    }
+  ]
+  
