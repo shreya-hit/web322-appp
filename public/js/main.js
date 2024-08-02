@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     itemsContainer.appendChild(itemElement);
                 });
             })
-            .catch(error => console.error('Error fetching items:', error));
+            .catch(error => console.error('Items not Fetched:', error));
     } else if (window.location.pathname === '/categories') {
         fetch('/categories-data')
             .then(response => response.json())
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     categoriesContainer.appendChild(categoryElement);
                 });
             })
-            .catch(error => console.error('Error fetching categories:', error));
+            .catch(error => console.error('Categories items not fetched:', error));
     } else if (window.location.pathname === '/shop') {
         fetch('/shop-data')
             .then(response => response.json())
@@ -73,6 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     shopContainer.appendChild(itemElement);
                 });
             })
-            .catch(error => console.error('Error fetching shop items:', error));
+            .catch(error => console.error('Shop items not fetched:', error));
     }
 });

@@ -4,7 +4,7 @@
 *  of this assignment has been copied manually or electronically from any other source 
 *  (including 3rd party web sites) or distributed to other students.
 * 
-*  Name: _____Shreya Adhikari_________________ Student ID: ___155466220___________ Date: ___July 21, 2024_____________
+*  Name: _____Shreya Adhikari_________________ Student ID: ___155466220___________ Date: ___July 28, 2024_____________
 * 
 *  GitHub Repository URL: https://github.com/shreya-hit/web322-app.git
 *
@@ -16,6 +16,8 @@ const storeService = require('./store-service');
 const multer = require("multer");
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
+const exphbs = require('express-handlebars');
+const stripJs = require('strip-js');
 
 cloudinary.config({
     cloud_name: 'shreya cloud',
@@ -24,169 +26,114 @@ cloudinary.config({
     secure: true
 });
 
+const hbs = exphbs.create({
+    extname: '.hbs',
+    helpers: {
+        navLink: function(url, options){
+            return '<li class="nav-item' +
+                ((url == app.locals.activeRoute) ? ' active' : '') + '"><a class="nav-link" href="' + url + '">' + options.fn(this) + '</a></li>';
+        },
+        equal: function (lvalue, rvalue, options) {
+            if (arguments.length < 3)
+                throw new Error("Handlebars Helper equal needs 2 parameters");
+            if (lvalue != rvalue) {
+                return options.inverse(this);
+            } else {
+                return options.fn(this);
+            }
+        },
+        safeHTML: function(context){
+            return stripJs(context);
+        }
+    }
+});
+app.engine('.hbs', hbs.engine);
+app.set('view engine', '.hbs');
+app.set('views', path.join(__dirname, 'views')); //ensuring views directory is set
+
 const upload = multer(); // no { storage: storage } since we are not using disk storage
 
 app.use(express.static('public'));
 
+app.use(function(req, res, next){
+    let route = req.path.substring(1);
+    app.locals.activeRoute = "/" + (isNaN(route.split('/')[1]) ? route.replace(/\/(?!.*)/, "") : route.replace(/\/(.*)/, ""));
+    app.locals.viewingCategory = req.query.category;
+    next();
+});
+
 app.get('/', (req, res) => {
-    res.redirect('/about');
+    res.redirect('/shop');
 });
 
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'about.html'));
+    res.render('about');
 });
 
 app.get('/shop', (req, res) => {
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Shop</title>
-            <link rel="stylesheet" href="/css/bootstrap.css"> 
-            <link rel="stylesheet" href="/css/main.css"> 
-        </head>
-        <body>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">WEB322 – Assignment 4 - Shreya Adhikari</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/shop">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/items">Items</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/items/add">Add Item</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/categories">Categories</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Shop</h2>
-                        <div id="shop-container"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <p>&copy; Shreya Adhikari. All rights reserved.</p>
-            </div>
-            <script src="/js/main.js"></script>
-        </body>
-        </html>
-    `);
+    let viewData = {};
+
+    storeService.getPublishedItems()
+        .then(items => {
+            viewData.items = items;
+        }).catch(err => {
+            viewData.message = "no results";
+        }).then(storeService.getCategories)
+        .then(categories => {
+            viewData.categories = categories;
+        }).catch(err => {
+            viewData.categoriesMessage = "no results";
+        }).then(() => {
+            res.render('shop', { data: viewData });
+        });
 });
 
-app.get('/categories', (req, res) => {
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Categories</title>
-            <link rel="stylesheet" href="/css/bootstrap.css"> 
-            <link rel="stylesheet" href="/css/main.css"> 
-        </head>
-        <body>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">WEB322 – Assignment 4 - Shreya Adhikari</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/shop">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/items">Items</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/items/add">Add Item</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/categories">Categories</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Categories</h2>
-                        <div id="categories-container"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <p>&copy; Shreya Adhikari. All rights reserved.</p>
-            </div>
-            <script src="/js/main.js"></script>
-        </body>
-        </html>
-    `);
+app.get('/shop/:id', (req, res) => {
+    let viewData = {};
+
+    storeService.getItemById(req.params.id).then(item => {
+        viewData.item = item;
+    }).catch(err => {
+        viewData.message = "no results";
+    }).then(storeService.getPublishedItems)
+    .then(items => {
+        viewData.items = items;
+    }).catch(err => {
+        viewData.message = "no results";
+    }).then(storeService.getCategories)
+    .then(categories => {
+        viewData.categories = categories;
+    }).catch(err => {
+        viewData.categoriesMessage = "no results";
+    }).then(() => {
+        res.render('shop', { data: viewData });
+    });
 });
 
 app.get('/items', (req, res) => {
-    res.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Items</title>
-            <link rel="stylesheet" href="/css/bootstrap.css"> 
-            <link rel="stylesheet" href="/css/main.css"> 
-        </head>
-        <body>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">WEB322 – Assignment 4 - Shreya Adhikari</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/shop">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/items">Items</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/items/add">Add Item</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/categories">Categories</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h2>Items</h2>
-                        <div id="items-container"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer">
-                <p>&copy; All rights reserved.</p>
-            </div>
-            <script src="/js/main.js"></script>
-        </body>
-        </html>
-    `);
+    if (req.query.category) {
+        storeService.getItemsByCategory(req.query.category)
+            .then(data => res.render('items', { items: data }))
+            .catch(err => res.render('items', { message: "no results" }));
+    } else if (req.query.minDate) {
+        storeService.getItemsByMinDate(req.query.minDate)
+            .then(data => res.render('items', { items: data }))
+            .catch(err => res.render('items', { message: "no results" }));
+    } else {
+        storeService.getAllItems()
+            .then(data => res.render('items', { items: data }))
+            .catch(err => res.render('items', { message: "no results" }));
+    }
+});
+
+app.get('/categories', (req, res) => {
+    storeService.getCategories()
+        .then(data => res.render('categories', { categories: data }))
+        .catch(err => res.render('categories', { message: "no results" }));
+});
+
+app.get('/items/add', (req, res) => {
+    res.render('addItem');
 });
 
 app.get('/shop-data', (req, res) => {
@@ -209,10 +156,6 @@ app.get('/items-data', (req, res) => {
             .then(data => res.json(data))
             .catch(err => res.status(500).json({ message: err }));
     }
-});
-
-app.get('/items/add', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'addItem.html'));
 });
 
 app.get('/categories-data', (req, res) => {
@@ -254,8 +197,10 @@ app.post('/items/add', upload.single("featureImage"), (req, res) => {
         processItem("");
     }
 
-    function processItem(imageUrl) {
+    function processItem(imageUrl) 
+    {
         req.body.featureImage = imageUrl;
+        req.body.itemDate = new Date().toISOString().split('T')[0];
 
         storeService.addItem(req.body).then(() => {
             res.redirect('/items');
@@ -271,9 +216,8 @@ app.get('/item/:id', (req, res) => {
         .catch(err => res.status(500).json({ message: err }));
 });
 
-// Catch-all route for unmatched paths
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    res.status(404).render('404');
 });
 
 const PORT = process.env.PORT || 8080;
